@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lo Estoy Haciendo Bien | Streaming &amp; Radio — Gonza Pasquet y Vero Stockli</title>
+  <meta name="description" content="Programa de streaming y radio conducido por Gonza Pasquet y Vero Stockli. Todos los miércoles de 17:00 a 18:30 hs desde LNO Studio (Santo Tomé / Santa Fe)." />
+  <meta name="theme-color" content="#09090d" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-orb orb-purple"></div>
+    <div class="ambient-orb orb-red"></div>
+    <div class="ambient-orb orb-orange"></div>
+  </div>
+
+  <!-- Sticky Header -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#inicio" class="brand" aria-label="Lo Estoy Haciendo Bien - Inicio">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" x2="12" y1="19" y2="22"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-title">LO ESTOY HACIENDO BIEN</span>
+          <span class="brand-sub" id="header-live-badge">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span id="header-live-text">EN VIVO • MIÉ 17:00 - 18:30 HS</span>
+          </span>
+        </span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <a href="#inicio" class="nav-link active" data-section="inicio">Inicio</a>
+        <a href="#historia" class="nav-link" data-section="historia">Historia</a>
+        <a href="#entrevistas" class="nav-link" data-section="entrevistas">Entrevistas</a>
+        <a href="#publicidad" class="nav-link" data-section="publicidad">Publicidad</a>
+        <a href="#preguntas-frecuentes" class="nav-link" data-section="preguntas-frecuentes">Preguntas frecuentes</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://www.youtube.com/@gonzapasquetok" target="_blank" rel="noopener noreferrer" class="btn btn-youtube btn-sm">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          <span>YouTube</span>
+        </a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== SECCIÓN INICIO ==================== -->
+    <section id="inicio" class="section hero-section" data-observe="inicio">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="neon-sign-pill" id="live-status-pill">
+              <span class="neon-rec-dot" aria-hidden="true"></span>
+              <span>STREAMING &amp; RADIO • MIÉRCOLES 17:00 A 18:30 HS</span>
+            </div>
+
+            <h1 class="hero-title">
+              Lo Estoy Haciendo <span class="text-gradient-orange">Bien</span>
+              <span class="hero-title-tag">Streaming</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              Programa de streaming conducido por <strong>Gonza Pasquet</strong> junto a <strong>Vero Stockli</strong> que se transmite los miércoles de <strong>17:00 a 18:30 horas</strong> desde Santa Fe y Santo Tomé.
+            </p>
+
+            <!-- Widget Contador / Estado En Vivo -->
+            <div class="countdown-widget" aria-live="polite">
+              <div class="countdown-label-row">
+                <span class="countdown-dot" id="countdown-dot"></span>
+                <span class="countdown-label" id="countdown-label">Próxima transmisión en vivo (Hora Argentina)</span>
+              </div>
+              <div class="countdown-timer" id="countdown-timer">
+                <div class="time-unit"><span id="cd-days">00</span><small>Días</small></div>
+                <span class="time-sep">:</span>
+                <div class="time-unit"><span id="cd-hours">00</span><small>Hs</small></div>
+                <span class="time-sep">:</span>
+                <div class="time-unit"><span id="cd-mins">00</span><small>Min</small></div>
+                <span class="time-sep">:</span>
+                <div class="time-unit"><span id="cd-secs">00</span><small>Seg</small></div>
+              </div>
+            </div>
+
+            <div class="hero-cta-group">
+              <a href="https://www.youtube.com/@gonzapasquetok" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                Ver en YouTube
+              </a>
+              <a href="#entrevistas" class="btn btn-secondary">Explorar Entrevistas (33)</a>
+              <a href="#publicidad" class="btn btn-outline">Publicitar mi Marca</a>
+            </div>
+          </div>
+
+          <!-- Composición Visual Tipo Estudio -->
+          <div class="hero-studio-collage" aria-label="Fotos del equipo y estudio de streaming">
+            <div class="studio-card studio-card-main">
+              <img src="assets/img/gonza-pasquet.jpg" alt="Gonza Pasquet en el estudio con micrófono y cartel neón EN VIVO" />
+              <div class="studio-neon-badge">EN VIVO</div>
+              <div class="studio-card-caption">
+                <strong>Gonza Pasquet</strong>
+                <span>Conducción &amp; Producción</span>
+              </div>
+            </div>
+            <div class="studio-card studio-card-side-top">
+              <img src="assets/img/vero-stockli.jpg" alt="Vero Stockli en el estudio con remera de Lo Estoy Haciendo Bien" />
+              <div class="studio-card-caption">
+                <strong>Vero Stockli</strong>
+                <span>Co-conducción</span>
+              </div>
+            </div>
+            <div class="studio-card studio-card-side-bottom">
+              <img src="assets/img/espacio-trabajo.jpg" alt="Micrófono y auriculares en LNO Studio Streaming" />
+              <div class="studio-card-caption">
+                <strong>LNO Studio</strong>
+                <span>Santo Tomé • Santa Fe</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Objetivo del Programa -->
+        <div class="objective-banner glass-card">
+          <div class="objective-tag">OBJETIVO DEL PROGRAMA</div>
+          <p class="objective-text">
+            El objetivo principal de <strong>"Lo estoy haciendo bien"</strong> es conectar con la audiencia a través de un espacio de encuentro fresco, descontracturado y auténtico, donde se abordan las vivencias cotidianas, la cultura local y el entretenimiento con humor, complicidad y una mirada cercana desde la radio y el streaming.
+          </p>
+        </div>
+
+        <!-- Equipo de Trabajo, Espacio y Medio de Difusión -->
+        <div class="subsection-header">
+          <span class="eyebrow">QUIÉNES SOMOS Y DESDE DÓNDE SALIMOS</span>
+          <h2>Equipo de trabajo, espacio y medio de difusión</h2>
+        </div>
+
+        <div class="team-grid">
+          <!-- Card 1: Gonza Pasquet -->
+          <article class="team-card glass-card">
+            <div class="team-media">
+              <img src="assets/img/gonza-pasquet.jpg" alt="Gonza Pasquet en mesa de streaming" loading="lazy" />
+              <a href="https://www.instagram.com/gonzapasquet/" target="_blank" rel="noopener noreferrer" class="social-floating-link" aria-label="Instagram de Gonza Pasquet">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                <span>@gonzapasquet</span>
+              </a>
+            </div>
+            <div class="team-body">
+              <span class="team-role">Conductor &amp; Productor</span>
+              <h3>GONZA PASQUET</h3>
+              <p class="team-lead">
+                Gonzalo Pasquet es un periodista, productor de medios y fotógrafo santafesino con una fuerte impronta en la comunicación local, la radio y el streaming.
+              </p>
+              <div class="team-accordion-content" id="bio-gonza" hidden>
+                <p>Es la mente inquieta y la voz detrás de varios proyectos de comunicación y contenidos:</p>
+                <ul class="team-list">
+                  <li><strong>Radio y Streaming:</strong> Conductor y productor del programa "Lo estoy haciendo bien" (junto a Vero Stockli por La Mega 98.3 FM Santa Fe) y creador de espacios como "Modo Off", enfocados en conocer el "Lado B" y las historias más humanas de sus invitados.</li>
+                  <li><strong>Deportes y Río:</strong> Apasionado del agua y la historia local, creador de proyectos como "Abriendo las Aguas" y el documental interactivo "Voces del Río", dedicados a la difusión de las disciplinas acuáticas y la mística de la Maratón Santa Fe-Coronda.</li>
+                  <li><strong>Fotografía:</strong> Fotógrafo profesional que no solo captura momentos, sino que también comparte su experiencia dictando talleres de fotografía móvil y visuales para emprendedores.</li>
+                </ul>
+              </div>
+              <button type="button" class="accordion-trigger-btn" data-toggle-target="bio-gonza" aria-expanded="false">
+                <span>Ver perfil completo</span>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 2: Vero Stockli -->
+          <article class="team-card glass-card">
+            <div class="team-media">
+              <img src="assets/img/vero-stockli.jpg" alt="Vero Stockli en el estudio" loading="lazy" />
+              <a href="https://www.instagram.com/loestoyhaciendobienfm/" target="_blank" rel="noopener noreferrer" class="social-floating-link" aria-label="Instagram de Lo Estoy Haciendo Bien">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                <span>@loestoyhaciendobienfm</span>
+              </a>
+            </div>
+            <div class="team-body">
+              <span class="team-role">Co-conductora</span>
+              <h3>VERO STOCKLI</h3>
+              <p class="team-lead">
+                Co-conductora y colaboradora en los proyectos de radio y streaming (como en Lo estoy haciendo bien). Es quien comparte el micrófono y el aire para llevar adelante la producción y el día a día de los programas.
+              </p>
+              <div class="team-accordion-content" id="bio-vero" hidden>
+                <p>Profesora de Educación Física, abocada a la salud y bienestar.</p>
+              </div>
+              <button type="button" class="accordion-trigger-btn" data-toggle-target="bio-vero" aria-expanded="false">
+                <span>Ver más info</span>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 3: Espacio de Trabajo -->
+          <article class="team-card glass-card">
+            <div class="team-media">
+              <img src="assets/img/espacio-trabajo.jpg" alt="Micrófono y auriculares profesionales en LNO Studio Streaming" loading="lazy" />
+              <a href="https://www.instagram.com/lnostudiostream/" target="_blank" rel="noopener noreferrer" class="social-floating-link" aria-label="Instagram de LNO Studio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                <span>@lnostudiostream</span>
+              </a>
+            </div>
+            <div class="team-body">
+              <span class="team-role">LNO Studio Streaming</span>
+              <h3>ESPACIO DE TRABAJO</h3>
+              <p class="team-lead">
+                LNO Studio es un estudio de grabación, streaming y producción audiovisual ubicado en la ciudad de Santo Tomé, Santa Fe.
+              </p>
+              <div class="team-accordion-content" id="bio-espacio" hidden>
+                <p>
+                  Es un espacio pensado para la realización de programas de streaming, grabación de podcasts, generación de contenido para redes y producciones independientes, equipado para responder a la movida de nuevos medios que está creciendo con fuerza en toda la zona metropolitana de Santa Fe y Santo Tomé.
+                </p>
+              </div>
+              <button type="button" class="accordion-trigger-btn" data-toggle-target="bio-espacio" aria-expanded="false">
+                <span>Ver más sobre el estudio</span>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 4: Canal de Difusión -->
+          <article class="team-card glass-card">
+            <div class="team-media">
+              <img src="assets/img/canal-difusion.jpg" alt="Canal de YouTube Gonza Pasquet @gonzapasquetok" loading="lazy" />
+              <a href="https://www.youtube.com/@gonzapasquetok" target="_blank" rel="noopener noreferrer" class="social-floating-link yt-pill" aria-label="Canal de YouTube Gonza Pasquet">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <span>@gonzapasquetok</span>
+              </a>
+            </div>
+            <div class="team-body">
+              <span class="team-role">YouTube Oficial</span>
+              <h3>CANAL DE DIFUSIÓN</h3>
+              <p class="team-lead">
+                Bienvenidos a mi canal. Soy Gonza Pasquet. 🎬📸 Acá vas a encontrar un poco de todo lo que hago y me mueve día a día: streaming en vivo, entrevistas profundas que escapan a lo convencional, mi mirada a través de la fotografía y un fuerte lazo con nuestras historias de río y cultura local.
+              </p>
+              <div class="team-accordion-content" id="bio-canal" hidden>
+                <p>
+                  Si te apasionan la comunicación auténtica, la producción de radio y las buenas charlas de sobremesa con música de fondo, este es tu lugar.
+                </p>
+                <p>🔔 ¡Hacé clic en suscribirse y activá la campanita para enterarte de todas las novedades!</p>
+                <a href="https://www.youtube.com/@gonzapasquetok" target="_blank" rel="noopener noreferrer" class="btn btn-youtube btn-sm" style="margin-top:0.5rem;">
+                  LINK DIRECTO AL CANAL
+                </a>
+              </div>
+              <button type="button" class="accordion-trigger-btn" data-toggle-target="bio-canal" aria-expanded="false">
+                <span>Ver mensaje y link directo</span>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Banner CTA Publicidad en Inicio -->
+        <div class="cta-banner glass-card">
+          <div class="cta-banner-content">
+            <h2>¿Querés que tu marca aparezca en nuestro programa?</h2>
+            <p>
+              Si te interesa llevar tu marca, tu producto o tu emprendimiento a otro nivel, enviá un correo a
+              <a href="mailto:pasquetgonza@gmail.com">pasquetgonza@gmail.com</a>
+              para obtener más información por publicidad o canje.
+            </p>
+          </div>
+          <div class="cta-banner-actions">
+            <a href="mailto:pasquetgonza@gmail.com?subject=Publicidad%20o%20Canje%20-%20Lo%20Estoy%20Haciendo%20Bien" class="btn btn-primary">
+              Enviar correo
+            </a>
+            <a href="https://wa.me/5493424211858?text=Hola!%20Quiero%20informaci%C3%B3n%20sobre%20publicidad%20o%20canje%20en%20Lo%20Estoy%20Haciendo%20Bien." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+              Escribir por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECCIÓN HISTORIA ==================== -->
+    <section id="historia" class="section section-alt" data-observe="historia">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">NUESTRO RECORRIDO</span>
+          <h2>¿Cómo nace Lo estoy haciendo bien?</h2>
+          <p class="section-subtitle">De la Radio al Streaming: La Historia de "Lo estoy haciendo bien".</p>
+        </div>
+
+        <div class="story-intro glass-card">
+          <p>
+            ¿Alguna vez te paraste a pensar si vas por el camino correcto? Esa pregunta, que todos nos hacemos en silencio mientras intentamos descifrar la vida adulta, fue el chispazo que le dio vida a <strong>"Lo estoy haciendo bien"</strong>. Lo que nació como una charla, la necesidad de conocer a las personas y una necesidad de expresión, hoy se convirtió en un espacio de encuentro indispensable en el aire y en las pantallas.
+          </p>
+          <p>
+            Esta es la historia de un proyecto autogestivo que supo transformarse, migrar de formatos y consolidar una comunidad fiel que crece día a día.
+          </p>
+        </div>
+
+        <!-- Timeline Narrativa -->
+        <div class="story-timeline">
+          <article class="timeline-item glass-card">
+            <div class="timeline-marker">2024 • 🎙️</div>
+            <div class="timeline-content">
+              <h3>El Origen: La mística de la radio comunitaria en Ochava Roma</h3>
+              <p>
+                Todo gran proyecto tiene un punto de inflexión donde se empieza a gestar la magia. Para "Lo estoy haciendo bien", ese lugar fue <strong>Ochava Roma</strong>, una radio comunitaria y centro cultural que es sinónimo de resistencia, arte y comunicación popular en la ciudad de Santa Fe.
+              </p>
+              <p>
+                En Ochava Roma se moldearon los primeros códigos del programa. Lejos de las presiones comerciales, el espacio sirvió para experimentar, encontrar una voz propia y entender que del otro lado había personas buscando lo mismo: autenticidad, buenas canciones y charlas sin filtro. Fue la escuela perfecta de la autogestión, donde el "hacerlo bien" significaba ponerle el cuerpo y el corazón a cada transmisión.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item glass-card">
+            <div class="timeline-marker">2025 • 📻</div>
+            <div class="timeline-content">
+              <h3>El Gran Salto: La consolidación en La Mega 98.3 FM Santa Fe</h3>
+              <p>
+                Con la identidad bien definida, llegó el momento de expandir los límites. El proyecto mudó su sintonía a <strong>La Mega 98.3 FM Santa Fe</strong>, una de las emisoras más importantes de la región y el templo del rock nacional en el dial.
+              </p>
+              <p>
+                Instalados en la grilla los jueves de 18:00 a 20:00 horas, el programa encontró su madurez. Con la conducción de Gonza Pasquet y la co-conducción de Vero Stockli, el aire de La Mega se transformó en un refugio para el regreso a casa. La propuesta se profesionalizó sin perder la frescura:
+              </p>
+              <ul class="feature-bullets">
+                <li>Entrevistas profundas que buscan conocer a los invitados.</li>
+                <li>Una selección musical con lo mejor del rock y pop argentino de los 80, 90 y 2000.</li>
+                <li>Debates cotidianos con humor, empatía y la complicidad de una audiencia que se adueñó del espacio.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item glass-card">
+            <div class="timeline-marker">2026 • 💻</div>
+            <div class="timeline-content">
+              <h3>La Revolución Digital: El desembarco en el Streaming</h3>
+              <p>
+                Fieles a su espíritu inquieto y a la necesidad de no quedarse quietos, el equipo entendió que el dial ya no era el único límite. El público consume de otra manera, interactúa en tiempo real y busca una experiencia visual. Así es como "Lo estoy haciendo bien" dio el salto definitivo hacia el streaming y el contenido multiplataforma.
+              </p>
+              <p>Hoy, el programa no solo se escucha; también se ve, se comparte y se fragmenta en redes sociales. El streaming permitió:</p>
+              <ul class="feature-bullets">
+                <li><strong>Romper las distancias:</strong> Conectar con oyentes y espectadores de cualquier parte del mundo.</li>
+                <li><strong>Interactividad en vivo:</strong> Chat en tiempo real, encuestas y una comunidad activa que participa del programa como un integrante más.</li>
+                <li><strong>Contenido On Demand:</strong> Clips, momentos destacados en YouTube y redes sociales que mantienen vivo el programa durante toda la semana.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item glass-card philosophy-card">
+            <div class="timeline-marker">∞</div>
+            <div class="timeline-content">
+              <h3>Una Filosofía de Vida</h3>
+              <p>
+                A lo largo de sus diferentes etapas, el proyecto mantuvo intacta su premisa inicial. "Lo estoy haciendo bien" no es una afirmación de soberbia; es un abrazo colectivo para todos los que transitamos el día a día intentando dar lo mejor, reinventándonos y, sobre todo, disfrutando del camino.
+              </p>
+              <p class="philosophy-quote">
+                "Desde el micrófono comunitario de Ochava Roma hasta las cámaras de streaming, el viaje recién empieza. Y sí... lo estamos haciendo bien."
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Tarjetas de Temporadas (2024 - 2026) -->
+        <div class="subsection-header">
+          <span class="eyebrow">TEMPORADA POR TEMPORADA</span>
+          <h3>Nuestras temporadas al aire</h3>
+        </div>
+
+        <div class="seasons-grid">
+          <div class="season-card glass-card">
+            <div class="season-visual">
+              <img
+                src="https://sites.google.com/sitesv-images-rt/APXyLQdEHZd-ATcU92npmmYvx90cXDYWHpmiow0vg411TFjMxsQX5bHn8f_fuA4UwgyQmwcjeMw2FoFbSdkpS316KqV15H_Gjem6onkZ0wzrPNxSeKPOtqECf0ntMhXFz0DUhNYcsIv48aZ5WY-AGBQupycz4frtQq2wKBHsmR3u-_3SWbs6S-UW1Qk-a1nKgAx5gia7Sso1pcqtoEzpIua5MxNolo77ihWMzwuxk0i0TFc=w1280"
+                alt="Primera Temporada 2024 - Ochava Roma"
+                loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="visual-fallback season-fallback-1" style="display:none;">
+                <span class="fallback-year">2024</span>
+                <strong>OCHAVA ROMA</strong>
+                <span>Radio Comunitaria</span>
+              </div>
+            </div>
+            <div class="season-caption">
+              <span class="season-badge">Temporada 1</span>
+              <h4>Primera Temporada 2024 - Ochava Roma</h4>
+            </div>
+          </div>
+
+          <div class="season-card glass-card">
+            <div class="season-visual">
+              <img
+                src="https://sites.google.com/sitesv-images-rt/APXyLQeobv0pyK7l2ZsHuFITIPWb_dDe00hl6TPA4FViQaROnwM2N6E6jJVJVjpEZr52sJrdCZD27qZsMuzXYt1sY9wusZRpI_0F8_tqOGpV0End6ur8gDm_rDfj_98jPTocPQbP5TOamzpdJydhZJNc5VwXiFO4AO0Fz66pSqkfrc8iY_9eQtf_vDmgx5dyJdvUfeKpkb1_SKE59M8wWueXeFfPVAjhaglAXDpWvHxyRbc=w1280"
+                alt="Segunda Temporada 2025 - Mega 98.3 Santa Fe"
+                loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="visual-fallback season-fallback-2" style="display:none;">
+                <span class="fallback-year">2025</span>
+                <strong>MEGA 98.3 FM</strong>
+                <span>Santa Fe</span>
+              </div>
+            </div>
+            <div class="season-caption">
+              <span class="season-badge">Temporada 2</span>
+              <h4>Segunda Temporada 2025 - Mega 98.3 Santa Fe</h4>
+            </div>
+          </div>
+
+          <div class="season-card glass-card">
+            <div class="season-visual">
+              <img
+                src="https://sites.google.com/sitesv-images-rt/APXyLQcspfbaxJiuHowz3tPT-jfL-Ho-EsPEAiTj-s4AKJ2va_ONZQjg7lkYqHeiar6bSCaNrUoPXO8dYkwSe6m_PFt2hpUk31UZFfHM-P2FtH4aFoMj_0esgMu0NIPslJFBcFe9AgDZl5RHU7_i-8NWeiyWPSnwMEDdz-cizTIATORJtkmM6mY9iSYz8u_mgaLcZox06MN4Kyl2-qStLfVqr2uWSZ8rdAzV0Z4Tf4C1pn4=w1280"
+                alt="Tercera Temporada 2026 - Mega 98.3 Santa Fe y LNO Studio"
+                loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="visual-fallback season-fallback-3" style="display:none;">
+                <span class="fallback-year">2026</span>
+                <strong>MEGA 98.3 &amp; LNO STUDIO</strong>
+                <span>Streaming Multiplataforma</span>
+              </div>
+            </div>
+            <div class="season-caption">
+              <span class="season-badge live">Temporada Actual</span>
+              <h4>Tercera Temporada 2026 - Primera parte en Mega 98.3 Santa Fe y segunda parte en LNO Studio</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Evolución de Logos -->
+        <div class="subsection-header">
+          <span class="eyebrow">IDENTIDAD VISUAL</span>
+          <h3>Evolución de nuestros logos</h3>
+        </div>
+
+        <div class="logos-grid">
+          <div class="logo-card glass-card">
+            <div class="logo-frame">
+              <img
+                src="https://sites.google.com/sitesv-images-rt/APXyLQdLntruZyib-vzmHmlo50VcDB8txU2fPe42QGGqjxmmyd2iCWWC6AYRGT7ksSvM-OwBTJtcelBvGoF9vO_Tjxsl3PH4O5zcopmihPFdGnm4d9a5RZUFEykApiYE_ijDMp0I8RhehxuurOSw-QXVskK3JKNwdibmNKH9_EF7QAKQcPV_83kSF6IDKAFXSNnx_qX3QTalcex-76UKQ0afIY2wAfi7PmbPMoxPrdUwlnw=w1280"
+                alt="Logo temporada 2024"
+                loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="logo-fallback" style="display:none;"><span>2024</span><small>Logo 1ª Temp.</small></div>
+            </div>
+            <span>Logo temporada 2024</span>
+          </div>
+
+          <div class="logo-card glass-card">
+            <div class="logo-frame">
+              <img
+                src="https://sites.google.com/sitesv-images-rt/APXyLQfRrp_oxZF2biUghZF-UovfeYPZagg25fsg-VKMjmPeuiDLGXwRrDy1aIEHdJu6MmINHOgbvUOnN3yBUtjDSN44EyoK3Pbe9OZETjtXDdwHNE3W57EMkd3tOlddI8iP2k-WjhfSkvuCbYLjE1CGyfKLt0KrMnvIDoH7jG8dirCkGDuJ9SMFdvIoisdb1XaqLccbcCBu7GCoQ68NzFgGiZRP94_fY8wWgDhnU4geFYg=w1280"
+                alt="Logo temporada 2025"
+                loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="logo-fallback" style="display:none;"><span>2025</span><small>Logo 2ª Temp.</small></div>
+            </div>
+            <span>Logo temporada 2025</span>
+          </div>
+
+          <div class="logo-card glass-card">
+            <div class="logo-frame">
+              <img
+                src="https://sites.google.com/sitesv-images-rt/APXyLQfbmBdEs0rC_ez-Cd9V8fw2RZfG2VW9cdfh-gu-0QHffkOrINRW4DfsBSvcI-4ZjtrwkDyupDWP3tiXX7xTeN-MWfbK94jlnnNrdcsK0eQF9_PU7_JpRPDUB4uKBV4YZ6XjHEz_SJSkWLfI6lnQ3wKqJXk3uPzrx3-WcAMq22FOIOBhJEmjAI9o9llhTTx__soxtWPfP_Q4hSJ-nRv8NSOyRpWCCHNZX96R_ub_Kiw=w1280"
+                alt="Logo actual"
+                loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="logo-fallback current" style="display:none;"><span>2026</span><small>Logo Actual</small></div>
+            </div>
+            <span>Logo actual</span>
+          </div>
+        </div>
+
+        <!-- ¿Dónde nos encontrás? -->
+        <div class="find-us-box glass-card">
+          <h3>¿Dónde nos encontrás?</h3>
+          <p>Estamos en Instagram, YouTube y TikTok. Acá abajo te dejamos las redes sociales👇</p>
+          <div class="social-pills">
+            <a href="https://www.instagram.com/loestoyhaciendobienfm/" target="_blank" rel="noopener noreferrer" class="social-pill ig">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              <span>Instagram @loestoyhaciendobienfm</span>
+            </a>
+            <a href="https://www.youtube.com/@gonzapasquetok" target="_blank" rel="noopener noreferrer" class="social-pill yt">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              <span>YouTube @gonzapasquetok</span>
+            </a>
+            <a href="https://www.tiktok.com/@loestoyhaciendobienfm" target="_blank" rel="noopener noreferrer" class="social-pill tt">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+              <span>TikTok @loestoyhaciendobienfm</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECCIÓN ENTREVISTAS ==================== -->
+    <section id="entrevistas" class="section" data-observe="entrevistas">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">CHARLAS SIN FILTRO &amp; LADO B</span>
+          <h2>Entrevistas</h2>
+          <p class="section-subtitle">
+            Reviví todas las notas del programa: historias de vida, deporte, cultura local, música y comunicación santafesina.
+          </p>
+        </div>
+
+        <!-- Controles de Búsqueda y Filtro -->
+        <div class="interviews-toolbar glass-card">
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input
+              type="search"
+              id="interview-search"
+              placeholder="Buscar por invitado, profesión o número de programa..."
+              aria-label="Buscar entrevistas"
+            />
+          </div>
+          <div class="filter-tabs" role="tablist" aria-label="Filtrar entrevistas">
+            <button type="button" class="filter-btn active" data-filter="all">Todas (<span id="count-all">33</span>)</button>
+            <button type="button" class="filter-btn" data-filter="s3">Temporada 3 (<span id="count-s3">17</span>)</button>
+            <button type="button" class="filter-btn" data-filter="extra">Más Entrevistas (<span id="count-extra">16</span>)</button>
+          </div>
+        </div>
+
+        <div class="interviews-meta-bar">
+          <span id="interviews-showing">Mostrando 33 entrevistas</span>
+          <a href="https://www.youtube.com/@gonzapasquetok/videos" target="_blank" rel="noopener noreferrer" class="text-link">
+            Ver canal completo en YouTube &rarr;
+          </a>
+        </div>
+
+        <!-- Grilla de Entrevistas (renderizada por main.js) -->
+        <div class="interviews-grid" id="interviews-grid"></div>
+        <div class="empty-state glass-card" id="interviews-empty" hidden>
+          <p>No encontramos entrevistas que coincidan con tu búsqueda.</p>
+          <button type="button" class="btn btn-secondary btn-sm" id="reset-search-btn">Mostrar todas</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECCIÓN PUBLICIDAD ==================== -->
+    <section id="publicidad" class="section section-alt" data-observe="publicidad">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">PAUTAS, CANJES &amp; SPONSORS</span>
+          <h2>¿Por qué publicitar con Lo estoy haciendo bien y Gonza Pasquet?</h2>
+          <p class="section-subtitle">
+            Publicitar en "Lo estoy haciendo bien" y asociar una marca a Gonza Pasquet ofrece ventajas estratégicas muy claras para comercios, marcas y emprendimientos que buscan un impacto real, especialmente en la región de Santa Fe, Santo Tomé y Monte Vera.
+          </p>
+        </div>
+
+        <!-- 5 Ventajas Estratégicas en Bento Grid -->
+        <div class="advantages-grid">
+          <article class="advantage-card glass-card">
+            <span class="adv-num">01</span>
+            <h3>Conexión directa con la audiencia local y regional</h3>
+            <p>
+              El programa se emite por Streaming. Publicitar acá garantiza llegar de manera directa a un público activo, principalmente de Santa Fe, Santo Tomé y zonas de influencia, que valora lo local, consume producción de la región y genera un fuerte sentido de pertenencia.
+            </p>
+          </article>
+
+          <article class="advantage-card glass-card">
+            <span class="adv-num">02</span>
+            <h3>Formato Multiplataforma (Radio + Streaming)</h3>
+            <p>
+              Hoy en día, la publicidad tradicional en radio se potencia enormemente cuando se combina con lo digital. Al pautar con nosotros, las marcas no solo obtienen aire, sino también exposición en:
+            </p>
+            <ul class="feature-bullets">
+              <li>La transmisión por streaming.</li>
+              <li>Los canales de difusión y redes sociales (como @gonzapasquet).</li>
+              <li>Contenido fragmentado (recortes de momentos destacados, reels, clips de YouTube), multiplicando la vida útil del anuncio más allá del vivo.</li>
+            </ul>
+          </article>
+
+          <article class="advantage-card glass-card">
+            <span class="adv-num">03</span>
+            <h3>Credibilidad y cercanía</h3>
+            <p>
+              La conducción junto a Vero Stockli aporta una dinámica fresca, empática y cotidiana. Cuando una marca entra de manera orgánica en el programa (a través de un PNT, un sorteo o una mención natural en la charla), el oyente lo percibe como la recomendación de un amigo. El perfil periodístico y fotográfico de Gonza aporta además un respaldo de profesionalismo y ojo estético.
+            </p>
+          </article>
+
+          <article class="advantage-card glass-card">
+            <span class="adv-num">04</span>
+            <h3>Flexibilidad y creatividad en las pautas</h3>
+            <p>
+              Al ser un espacio de producción independiente y cercana, las marcas no quedan encasilladas en una tanda tradicional de 15 segundos. Se pueden pensar campañas a medida:
+            </p>
+            <ul class="feature-bullets">
+              <li><strong>Experiencias en vivo:</strong> Probar el producto al aire o interactuar directamente con él.</li>
+              <li><strong>Contenido integrado:</strong> Cruzar la pauta con la estética visual de redes o coberturas fotográficas del local/emprendimiento.</li>
+              <li><strong>Sorteos y consignas:</strong> Generar interactividad directa con los oyentes para aumentar el alcance de las redes del auspiciante.</li>
+            </ul>
+          </article>
+
+          <article class="advantage-card glass-card advantage-wide">
+            <span class="adv-num">05</span>
+            <h3>Apoyo a la producción local independiente</h3>
+            <p>
+              Pautar en <strong>Lo estoy haciendo bien</strong>, como en cualquiera de los proyectos de Gonza Pasquet (<em>Voces del Río</em>, <em>Abriendo las Aguas</em>, entre otros), es también una declaración de principios para las marcas locales: apostar por proyectos de comunicación jóvenes, creativos y autogestivos de la zona que buscan refrescar el aire de los medios tradicionales.
+            </p>
+          </article>
+        </div>
+
+        <!-- Marcas que nos acompañan -->
+        <div class="subsection-header">
+          <span class="eyebrow">AUSPICIANTES</span>
+          <h3>Las marcas que nos acompañan</h3>
+        </div>
+
+        <div class="sponsors-grid">
+          <div class="sponsor-card glass-card">
+            <div class="sponsor-logo-wrap">
+              <img src="https://sites.google.com/sitesv-images-rt/APXyLQdaoOYaGRRkXqEtyqumoCMB6JkyOdEm3GJ2uXmn1ZR-qlnr25Tk8lnOXiWRtZzqDPQp9lf2loLn2htLRKVvZ9jh-3Uq29zFBQtcVfIy_7OUlk6bI9fv6fGl9n3_ZdCHHsdV1Uxw5wXmBrO3MtDJQhad96R7EJLfTZqqAt0YAYjcTLXF8H14D0Tg29syEwlj66dnckicwZQMzsWIcxK0Vw5I3jw5_CoFmKUbMyPP40I=w1280" alt="Concejo de Santa Fe" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none; --badge-hue: 210;">CSF</div>
+            </div>
+            <h4>CONCEJO DE SANTA FE</h4>
+            <a href="https://www.instagram.com/concejosantafe/" target="_blank" rel="noopener noreferrer" class="sponsor-link">@concejosantafe</a>
+          </div>
+
+          <div class="sponsor-card glass-card">
+            <div class="sponsor-logo-wrap">
+              <img src="https://sites.google.com/sitesv-images-rt/APXyLQfXdViR1TrYwImaj1EuoCeRZcparheTw3SR6RQqaAiCehAhAoSPFLNnvGcokDxOxW-S49Kc5wgqcj8om7b8bv85jwj4dHCbFUSd5k-yISdRi2ypdknmZ2-iEf6eWdtCxQ8fWFgNKfbf280_vo1zEwtePSs3661B2Of_dnze7kYgCaKuJXNSDc1LfxsMlBWfzF9uSmGuIYHYLZlOHPZijsLOjz86AnMb_Qm53waX_LU=w1280" alt="Mate.Ar" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none; --badge-hue: 145;">MA</div>
+            </div>
+            <h4><a href="http://mate.ar/" target="_blank" rel="noopener noreferrer">MATE.AR</a></h4>
+            <a href="https://www.instagram.com/mate.ar.sf/" target="_blank" rel="noopener noreferrer" class="sponsor-link">@mate.ar.sf</a>
+          </div>
+
+          <div class="sponsor-card glass-card">
+            <div class="sponsor-logo-wrap">
+              <img src="https://sites.google.com/sitesv-images-rt/APXyLQc__ViTL7Xs7s5iDAxnfznJLuFsm-GBbJ9dfiq60YUpDfyiCWicLGKS3qCR4Yh8FxNq6cFTqIDtd6ZcTfuOv_TrTjzEhrk8ecfubCI_YzvqZXX6wm3tN5swwbqYOZrdq9z7tUnWNst3TmRii1MI9FD5R_fWsXmksOENAairxVB54ybyW0YLTmsS6L0Xs-u6me_A92VwvlUbzr03KPx7TSXFvjoMwrnpxNkG_NHH=w1280" alt="Todo Uñas by Vale Paz" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none; --badge-hue: 330;">TU</div>
+            </div>
+            <h4>TODO UÑAS BY VALE PAZ</h4>
+            <a href="https://www.instagram.com/todounias.vp/" target="_blank" rel="noopener noreferrer" class="sponsor-link">@todounias.vp</a>
+          </div>
+
+          <div class="sponsor-card glass-card">
+            <div class="sponsor-logo-wrap">
+              <img src="https://sites.google.com/sitesv-images-rt/APXyLQcZfROKcSfJ-FRIHzJLxV8xwnN744EQIZ44C32it0cjImolBgxQ8mHoMk6bME_P68v2L3b9EcaP8Yesu9nMOHbaQLySkDlMG70e_CfhDZITS-y7TXF6F8npOVxSxy3gSX27x86EIeGgCYqOZqeloTEcqiDoiz6-uqfEPkxTmlB-agOCv9VNYxWEn57z1bTfNDhlaLdq3zp6T512aeHJquHwSsVFXhd5V6s3khUzxAs=w1280" alt="Natalia Bertolin" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none; --badge-hue: 280;">NB</div>
+            </div>
+            <h4>NATALIA BERTOLIN</h4>
+            <a href="https://www.instagram.com/nataliabertolin/" target="_blank" rel="noopener noreferrer" class="sponsor-link">@nataliabertolin</a>
+          </div>
+
+          <div class="sponsor-card glass-card">
+            <div class="sponsor-logo-wrap">
+              <img src="https://sites.google.com/sitesv-images-rt/APXyLQdbC4DQo93klOKenlpct_eRjoa5ttc5nQRD2ganO2S4bOWlFfGDFC0po3DsqAwMdn2xx7WpcT948MsDXqdi2WB_8v_G5Y8stYEoGR3VkEtfB9h4DRq9YV_DD1V3eZcB8MWAwoX7_eaSenMFitbNCUpK15_lnIROwD8mLYMvym592ado9oJd2sInt6DiS_rPetxz9onTPnijubjnjWJ9DW5lmdLnkDt8C4Rbmaxgl9c=w1280" alt="Midtown Barbería" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none; --badge-hue: 25;">MB</div>
+            </div>
+            <h4>MIDTOWN BARBERÍA</h4>
+            <a href="https://www.instagram.com/midtown.barberia/" target="_blank" rel="noopener noreferrer" class="sponsor-link">@midtown.barberia</a>
+          </div>
+
+          <div class="sponsor-card glass-card">
+            <div class="sponsor-logo-wrap">
+              <img src="https://sites.google.com/sitesv-images-rt/APXyLQdn3QdMbakN9HPtSgsRijQ0vVJeMch5e1RY7h8EiYTPLIsIQRm2-R53XH2EoNfA5yx41T78XqoOKnexOI9SGCrjQfRsdkcxIVuMdnEcdKxsmuLK0VbXAVuDZKJz1Mkx2pCsvLtHnktg0ObWlQy6JYciJzrsAMYakjuiSPWhQlftt4fa4DADvdCH7njDrWnQYvGCLaVd2pAsnmWaSVtFmpIsCe6lhJ1wbXacGk-wzH8=w1280" alt="Zivara Sistema de Movimiento" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none; --badge-hue: 185;">ZV</div>
+            </div>
+            <h4>ZIVARA SISTEMA DE MOVIMIENTO</h4>
+            <a href="https://www.instagram.com/zivara.ok/" target="_blank" rel="noopener noreferrer" class="sponsor-link">@zivara.ok</a>
+          </div>
+
+          <div class="sponsor-card glass-card">
+            <div class="sponsor-logo-wrap">
+              <img src="https://sites.google.com/sitesv-images-rt/APXyLQd2_mzaGO5mQxWmdjvC3XSIVio4nVo0qPIYJOGDag9Io9_SfuuiXR64WMp9DYy56CJY-Akt4smW8_2TQTs4Ztyu4sBbvR5pfU8mP1htDDufdnhE7fdJVK5la_R5o-vv38V-7vnGx8BaWQo0jkjRAaRzK2HFLY--fv8x_0FCIr5324QIfD6_uIjL9XIJBX7QfGyQ5Tv1VgxUrNh-UDSSZBWbNKGG4DEXHcjAZ3mwJeI=w1280" alt="Leandro Patrone Asesor de Seguros" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none; --badge-hue: 225;">LP</div>
+            </div>
+            <h4>LEANDRO PATRONE ASESOR DE SEGUROS</h4>
+            <a href="https://www.instagram.com/leandropatroneseguros/" target="_blank" rel="noopener noreferrer" class="sponsor-link">@leandropatroneseguros</a>
+          </div>
+
+          <div class="sponsor-card glass-card">
+            <div class="sponsor-logo-wrap">
+              <img src="https://sites.google.com/sitesv-images-rt/APXyLQcl2Y2SuxBPeac6ABL7bXJScij1vY-qG0fnYraMSU1-ZQET0fcbSx9QQ7Fhfdl6dZ5JJcb5e_T1ZLh03uEQ_Rv1JSNlrTdNbU-mkWKtHXJHjr4UiFiG_R-xXg0CHe8jy-UmjoK4psF92pxRGLr1C9xR65tekCrEtXjGUa6j1t75ABVIUxGRaPt0v6Xiq-V0pHnL8O-5R8EWW2JaTyyUMy_DdirwmIrWUt5A7arpYmM=w1280" alt="Soma Lencería" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none; --badge-hue: 350;">SL</div>
+            </div>
+            <h4>SOMA LENCERÍA</h4>
+            <a href="https://www.instagram.com/somalenc/" target="_blank" rel="noopener noreferrer" class="sponsor-link">@somalenc</a>
+          </div>
+
+          <div class="sponsor-card glass-card">
+            <div class="sponsor-logo-wrap">
+              <img src="https://sites.google.com/sitesv-images-rt/APXyLQduEWsa8s1_CjPvnFXDANzXRFtAesJPf9l9KAHdYksZhjLgTlt1b8gFTXb2LpEGXBKcuNCNfg_a5wXZWFvbeAY89K96P6wZfPobGqksIEXQMoFJvYIFQKaY7nLM22hCC-7NyTWR4AMdLIk6qMXcWNnIP-1Vgm9wWix6NXAQ7v7v7iKEADejTIqYlZAVO7qqFN-W0NJgeI9D5Hm2yRmLiMGxoRs59STcbMctIcpl=w1280" alt="CIOS Cooperativa" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none; --badge-hue: 165;">CIOS</div>
+            </div>
+            <h4>CIOS COOPERATIVA</h4>
+            <a href="https://www.instagram.com/cios.coop/" target="_blank" rel="noopener noreferrer" class="sponsor-link">@cios.coop</a>
+          </div>
+
+          <div class="sponsor-card glass-card">
+            <div class="sponsor-logo-wrap">
+              <img src="https://sites.google.com/sitesv-images-rt/APXyLQd33KF0KtvcxCeYvL8XEdzkb8UrV3KOksde1VxwlyxLY7IJjjCHTdOMR99yyUXD1tjsDnW5aMzCGTDxEvGoUWc4YhbQw-0OGewH1tntL8U4OLE-txvLNg2xUJar9tg1tIecNAHt2rH2XW7C_IURUOHhSrtN0ZWPKUFuXjrbCwBhlJVnhRtZC7ed6YnZTkMCsOsdXzKcSocY2gwcDk0uzVa0Ta5UkQxVDKRXlPbdVlo=w1280" alt="Santa Foto Talleres" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none; --badge-hue: 35;">SF</div>
+            </div>
+            <h4>SANTA FOTO TALLERES</h4>
+            <a href="https://www.instagram.com/santafoto.talleres/" target="_blank" rel="noopener noreferrer" class="sponsor-link">@santafoto.talleres</a>
+          </div>
+
+          <div class="sponsor-card glass-card">
+            <div class="sponsor-logo-wrap">
+              <img src="https://sites.google.com/sitesv-images-rt/APXyLQdHf9dSQGmoA8Eh_r2_dva_Mu32igBI0ubHUvF2L_JcJ1OcY1Q0SzajEXQlJan8uMcwyKpVMv4dJKimUs7f8ccDeABF6G2ZZx5Kss39Ldno8ij3tMJ65jOPj2RI25sBxk2ObzCuhqxjOb4PVyrNM0ARU2MIPHW5sePYEuYjmfUZnexvTWxvyEmTMfJ82YsSW1eU3lMhCETsfo2FDgCe9iwTv-skJgMIxglywzzU=w1280" alt="Domus Aurea" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none; --badge-hue: 45;">DA</div>
+            </div>
+            <h4>DOMUS AUREA</h4>
+            <a href="https://www.instagram.com/domusaurea.pna/" target="_blank" rel="noopener noreferrer" class="sponsor-link">@domusaurea.pna</a>
+          </div>
+        </div>
+
+        <!-- Bloque Interactivo Únete al Programa -->
+        <div class="join-program-card glass-card">
+          <div class="join-info">
+            <span class="eyebrow">SUMATE COMO SPONSOR</span>
+            <h3>Únete al programa</h3>
+            <p>
+              Describí brevemente tu marca, emprendimiento o producto y te contactamos para pasarte un presupuesto.
+            </p>
+            <div class="direct-contact-list">
+              <div><strong>Email:</strong> <a href="mailto:pasquetgonza@gmail.com">pasquetgonza@gmail.com</a></div>
+              <div><strong>WhatsApp:</strong> <a href="https://wa.me/5493424211858" target="_blank" rel="noopener noreferrer">+54 9 342 421-1858</a></div>
+            </div>
+          </div>
+
+          <form class="join-form" id="sponsor-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="sponsor-brand">Nombre / Marca o Emprendimiento</label>
+                <input type="text" id="sponsor-brand" placeholder="Ej: Café Santa Fe / Tu Nombre" required />
+              </div>
+              <div class="form-group">
+                <label for="sponsor-ig">Instagram o Web (opcional)</label>
+                <input type="text" id="sponsor-ig" placeholder="Ej: @tumarca" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="sponsor-desc">Contanos brevemente qué querés promocionar</label>
+              <textarea id="sponsor-desc" rows="3" placeholder="Ej: Nos interesa pautar con menciones al aire o un sorteo en el programa..." required></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="button" id="send-wa-btn" class="btn btn-whatsapp">
+                Enviar por WhatsApp
+              </button>
+              <button type="button" id="send-email-btn" class="btn btn-secondary">
+                Enviar Correo
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECCIÓN PREGUNTAS FRECUENTES ==================== -->
+    <section id="preguntas-frecuentes" class="section" data-observe="preguntas-frecuentes">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">INFO RÁPIDA</span>
+          <h2>Preguntas frecuentes</h2>
+          <p class="section-subtitle">Elige una pregunta para ver los detalles al instante:</p>
+        </div>
+
+        <div class="faq-quick-nav" aria-label="Índice de preguntas frecuentes">
+          <button type="button" class="faq-chip" data-faq-jump="faq-1">¿Cuándo nos encontrás en vivo?</button>
+          <button type="button" class="faq-chip" data-faq-jump="faq-2">¿Dónde nos encontrás en vivo?</button>
+          <button type="button" class="faq-chip" data-faq-jump="faq-3">¿Cómo podés ser parte?</button>
+          <button type="button" class="faq-chip" data-faq-jump="faq-4">¿Nuestras redes sociales?</button>
+        </div>
+
+        <div class="faq-list">
+          <article class="faq-item glass-card active" id="faq-1">
+            <button type="button" class="faq-question" aria-expanded="true">
+              <span>¿Cuándo nos encontrás en vivo?</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Todos los <strong>miércoles de 17:00 a 18:30 horas</strong>.</p>
+            </div>
+          </article>
+
+          <article class="faq-item glass-card" id="faq-2">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>¿Dónde nos encontrás en vivo?</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>En nuestro canal de YouTube:</p>
+              <a href="https://www.youtube.com/@gonzapasquetok" target="_blank" rel="noopener noreferrer" class="btn btn-youtube btn-sm" style="margin-top:0.75rem;">
+                Ir a YouTube (@gonzapasquetok)
+              </a>
+            </div>
+          </article>
+
+          <article class="faq-item glass-card" id="faq-3">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>¿Cómo podés ser parte de Lo estoy haciendo bien?</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Mandá un mensaje al <strong>+54 9 342 4 211 858</strong>.</p>
+              <a href="https://wa.me/5493424211858" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm" style="margin-top:0.75rem;">
+                Mandar WhatsApp al +54 9 342 4 211 858
+              </a>
+            </div>
+          </article>
+
+          <article class="faq-item glass-card" id="faq-4">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>¿Querés saber nuestras redes sociales?</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer" hidden>
+              <p>Te las dejamos acá:</p>
+              <div class="social-pills" style="margin-top:0.75rem; justify-content:flex-start;">
+                <a href="https://www.instagram.com/loestoyhaciendobienfm/" target="_blank" rel="noopener noreferrer" class="social-pill ig">
+                  Instagram Programa (@loestoyhaciendobienfm)
+                </a>
+                <a href="https://www.tiktok.com/@loestoyhaciendobienfm" target="_blank" rel="noopener noreferrer" class="social-pill tt">
+                  TikTok (@loestoyhaciendobienfm)
+                </a>
+                <a href="https://www.instagram.com/gonzapasquet/" target="_blank" rel="noopener noreferrer" class="social-pill ig">
+                  Instagram Gonza (@gonzapasquet)
+                </a>
+                <a href="https://www.youtube.com/@gonzapasquetok" target="_blank" rel="noopener noreferrer" class="social-pill yt">
+                  YouTube (@gonzapasquetok)
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="brand-title">LO ESTOY HACIENDO BIEN</div>
+        <p>
+          Streaming y radio conducido por Gonza Pasquet y Vero Stockli. Miércoles de 17:00 a 18:30 hs desde LNO Studio (Santo Tomé / Santa Fe).
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Secciones</h4>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#historia">Historia</a></li>
+          <li><a href="#entrevistas">Entrevistas</a></li>
+          <li><a href="#publicidad">Publicidad</a></li>
+          <li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Redes &amp; Streaming</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/@gonzapasquetok" target="_blank" rel="noopener noreferrer">YouTube (@gonzapasquetok)</a></li>
+          <li><a href="https://www.instagram.com/loestoyhaciendobienfm/" target="_blank" rel="noopener noreferrer">Instagram (@loestoyhaciendobienfm)</a></li>
+          <li><a href="https://www.tiktok.com/@loestoyhaciendobienfm" target="_blank" rel="noopener noreferrer">TikTok (@loestoyhaciendobienfm)</a></li>
+          <li><a href="https://www.instagram.com/gonzapasquet/" target="_blank" rel="noopener noreferrer">Gonza Pasquet (@gonzapasquet)</a></li>
+          <li><a href="https://www.instagram.com/lnostudiostream/" target="_blank" rel="noopener noreferrer">LNO Studio (@lnostudiostream)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contacto directo</h4>
+        <ul>
+          <li><a href="mailto:pasquetgonza@gmail.com">pasquetgonza@gmail.com</a></li>
+          <li><a href="https://wa.me/5493424211858" target="_blank" rel="noopener noreferrer">WhatsApp: +54 9 342 421-1858</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&copy; 2026 Lo Estoy Haciendo Bien Streaming • Santa Fe &amp; Santo Tomé</span>
+      <span><a href="mailto:pasquetgonza@gmail.com">Correo electrónico</a> | <a href="https://www.instagram.com/gonzapasquet/" target="_blank" rel="noopener noreferrer">Redes</a> | <a href="https://wa.me/5493424211858" target="_blank" rel="noopener noreferrer">WhatsApp</a></span>
+    </div>
+  </footer>
+
+  <!-- Botón Flotante de WhatsApp -->
+  <a
+    href="https://wa.me/5493424211858?text=Hola%20equipo%20de%20Lo%20Estoy%20Haciendo%20Bien!"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="floating-wa"
+    aria-label="Contactar por WhatsApp"
+    title="Escribinos por WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.33.16 11.9c0 2.1.55 4.15 1.59 5.95L0 24l6.33-1.66a11.87 11.87 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.42zM12.07 21.79a9.87 9.87 0 0 1-5.04-1.38l-.36-.22-3.75.98 1-3.66-.24-.38a9.86 9.86 0 0 1-1.51-5.23c0-5.46 4.44-9.9 9.9-9.9 2.64 0 5.13 1.03 7 2.9a9.83 9.83 0 0 1 2.9 7c0 5.46-4.44 9.89-9.9 9.89zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.03-1.05 2.51s1.08 2.91 1.23 3.11c.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/>
+    </svg>
+  </a>
+
+  <!-- Modal Reproductor de Entrevista YouTube -->
+  <div class="video-modal" id="video-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-video-title">
+    <div class="video-modal-backdrop" id="modal-backdrop"></div>
+    <div class="video-modal-dialog glass-card">
+      <div class="video-modal-header">
+        <div>
+          <span class="modal-badge" id="modal-video-badge">Entrevista</span>
+          <h3 id="modal-video-title">Cargando entrevista...</h3>
+        </div>
+        <button type="button" class="modal-close" id="modal-close" aria-label="Cerrar reproductor">&times;</button>
+      </div>
+      <div class="video-embed-wrap">
+        <iframe
+          id="modal-iframe"
+          src=""
+          title="Reproductor de entrevista YouTube"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="video-modal-footer">
+        <span class="modal-note">¿No carga el reproductor? Podés abrirla directo en YouTube:</span>
+        <a href="#" id="modal-yt-link" target="_blank" rel="noopener noreferrer" class="btn btn-youtube btn-sm">
+          Ver en YouTube &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
